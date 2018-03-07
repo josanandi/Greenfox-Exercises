@@ -111,7 +111,7 @@ class Deck():
 
         for k in pack.keys():
             for i in range(len(pack[k])):
-                self.new_pack.append({Card(k,pack[k][i]).card})
+                self.new_pack.append(Card(k,pack[k][i]).card)
         return self.new_pack
 
     def shuffle_cards(self):
@@ -126,7 +126,7 @@ class Deck():
         self.new_pack.remove(card_drawn)
         self.number-=1
         Deck.generate_pack(self)
-        return "".join(card_drawn)
+        return card_drawn
 
 
 
