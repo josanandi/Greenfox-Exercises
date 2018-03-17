@@ -20,25 +20,25 @@ def text_encode(text):
                 'u', 'v', 'w', 'x', 'y', 'z']
     text=text.lower()
     new_text=[]
+    new_index=None
+
     for letter in text:
         if letter in alphabet:
             counter=text.count(letter)
             break
 
     for letter in text:
-        for index, item in enumerate(alphabet):
-            if letter==item:
-                new_index=index+counter
-                while new_index>=26:
-                    new_index-=26
-                new_text.append(alphabet[new_index])
-                break
+        if letter in alphabet:
+            new_index=alphabet.index(letter)+counter
+            new_index=new_index%26
+            new_text.append(alphabet[new_index])
+
         else:
             new_text.append(letter)
 
     return ("".join(new_text))
 
-
+print(text_encode("andi"))
 
 """ Exercise 3 """
 
